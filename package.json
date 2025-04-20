@@ -1,0 +1,23 @@
+{
+  "name": "roast-calculator",
+  "version": "1.0.0",
+  "description": "Calculate the perfect cooking times for your roast.",
+  "main": "app.js",
+  "scripts": {
+    "deploy": "gh-pages -d .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielabar/roast-calculator.git"
+  },
+  "author": "Daniela Baron",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danielabar/roast-calculator/issues"
+  },
+  "homepage": "https://github.com/danielabar/roast-calculator#readme",
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}

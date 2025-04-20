@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roast Calculator</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Extend Tailwind to use Inter as the default sans font and Playfair for headings
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Inter font -->
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <style>
+    html {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="relative min-h-screen bg-cover bg-center text-white font-sans"
+  style="background-image: url('images/bao-menglong-2NmWZAX98Pk-unsplash.jpg');">
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-xl mx-auto py-10 px-6">
+    <!-- Navbar -->
+    <header class="flex justify-between items-center mb-8">
+      <h1 class="text-3xl font-bold text-amber-300 font-serif">Roast Calculator</h1>
+      <a href="#about" class="text-sm text-white underline hover:text-amber-100">About</a>
+    </header>
+
+    <!-- Form -->
+    <form id="roastForm"
+      class="bg-amber-50/80 rounded-xl shadow-lg ring-1 ring-amber-300 backdrop-blur-md p-6 text-gray-800 space-y-4">
+      <div>
+        <label for="weight" class="block font-medium">Weight of Roast</label>
+        <input type="number" id="weight" name="weight" step="0.001" min="0.1" max="25"
+          class="w-full mt-1 p-2 rounded-lg border border-amber-200 bg-white/70 focus:ring-2 focus:ring-amber-400"
+          placeholder="e.g. 2.5" required>
+      </div>
+
+      <div>
+        <span class="block font-medium mb-1">Units</span>
+        <label class="mr-4"><input type="radio" name="unit" value="kg" checked> Kilograms</label>
+        <label><input type="radio" name="unit" value="lb"> Pounds</label>
+      </div>
+
+      <div>
+        <label for="doneness" class="block font-medium">Desired Doneness</label>
+        <select id="doneness" name="doneness"
+          class="w-full mt-1 p-2 rounded-lg border border-amber-200 bg-white/70 focus:ring-2 focus:ring-amber-400">
+          <option>Rare</option>
+          <option>Medium Rare</option>
+          <option>Medium</option>
+          <option>Medium Well</option>
+          <option>Well Done</option>
+        </select>
+      </div>
+
+      <div>
+        <span class="block font-medium mb-1">Temperature Units</span>
+        <label class="mr-4"><input type="radio" name="tempUnit" value="C" checked> Celsius</label>
+        <label><input type="radio" name="tempUnit" value="F"> Fahrenheit</label>
+      </div>
+
+      <div class="flex justify-between pt-4">
+        <button type="submit"
+          class="bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 transition duration-200 shadow-md">Cook!</button>
+        <button type="reset" class="text-gray-600 underline hover:text-gray-800">Clear</button>
+      </div>
+    </form>
+
+    <!-- Output (Results Box) -->
+    <div id="output"
+      class="mt-6 bg-amber-50/80 text-gray-900 p-4 rounded-xl shadow-lg ring-1 ring-amber-300 backdrop-blur-md hidden">
+      <h2 class="text-lg font-semibold mb-2">Results:</h2>
+      <p id="cookTime"></p>
+      <p id="targetTemp"></p>
+      <p id="pullTemp"></p>
+    </div>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+
+</html>
